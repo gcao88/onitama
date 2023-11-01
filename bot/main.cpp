@@ -1,5 +1,6 @@
 #include "classes.cpp"
 #include <unordered_map>
+#include <vector>
 
 using namespace std;
 
@@ -24,8 +25,8 @@ void createCards() {
     all_cards.insert({"cobra", {{-1,0},{1,1},{1,-1}}});
 }
 
-void runDFS(Board board, vector cards, int turn) {
-
+void runDFS(Board board, vector<vector<pair<int,int>>> cards, int turn) {
+    return;
 }
 
 int main() {
@@ -34,7 +35,12 @@ int main() {
 
     // Player 1: King 1, Pawns 3
     // Player 2: King 2, Pawns 4
-    std::string current_board = "44244"+"00000"+"00000"+"00000"+"33133";
+    std::string current_board = "";
+    current_board += "44244";
+    current_board += "00000";
+    current_board += "00000";
+    current_board += "00000";
+    current_board += "33133";
     // Which players turn is it?
     int turn = 1;
     // What cards do each person have?

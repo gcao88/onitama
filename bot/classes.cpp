@@ -12,18 +12,11 @@ class Board {
         void change(std::string new_board) {
             board = new_board;
         }
-};
-
-class Card {
-    std::vector<std::pair<int,int>> moves;
-
-    public:
-        Card(std::vector<std::pair<int,int>> card_moves) {
-            moves = card_moves;
-        }
-        void add_moves(std::vector<std::pair<int,int>> card_moves) {
-            for (int i=0; i<card_moves.size(); i++) {
-                moves.add(card_moves(i));
+        std::vector<int> toVector() {
+            std::vector<int> ans = {};
+            for (int i=0; i<25; i++) {
+                ans.push_back(board.at(i));
             }
+            return ans;
         }
 };
