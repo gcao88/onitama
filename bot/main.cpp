@@ -1,25 +1,31 @@
 #include "classes.cpp"
+#include <unordered_map>
 
-std::vector all_cards;
+using namespace std;
+
+unordered_map<std::string, std::vector<std::pair<int,int>>> all_cards;
 
 void createCards() {
-    std::pair<int,int> m1 (0,2);
-    std::pair<int,int> m2 (0,-1);
-    std::vector<std::pair<int,int>> v = {m1,m2};
-    Card tiger(v);
+    all_cards.insert({"tiger", {{0,2},{0,-1}}});
+    all_cards.insert({"crab", {{0,1},{-2,0},{2,0}}});
+    all_cards.insert({"monkey", {{1,1},{-1,1},{-1,-1},{1,-1}}});
+    all_cards.insert({"crane", {{0,1},{-1,-1},{1,-1}}});
+    all_cards.insert({"dragon", {{-1,-1},{1,-1},{2,1},{-2,1}}});
+    all_cards.insert({"elephant", {{1,0},{1,1},{-1,0},{-1,1}}});
+    all_cards.insert({"mantis", {{1,1},{-1,1},{0,-1}}});
+    all_cards.insert({"boar", {{0,1},{-1,0},{1,0}}});
+    all_cards.insert({"frog", {{-2,0},{-1,1},{1,-1}}});
+    all_cards.insert({"goose", {{-1,1},{-1,0},{1,0},{1,-1}}});
+    all_cards.insert({"horse", {{-1,0},{0,-1},{0,1}}});
+    all_cards.insert({"eel", {{-1,1},{-1,-1},{1,0}}});
+    all_cards.insert({"rabbit", {{-1,-1},{1,1},{2,0}}});
+    all_cards.insert({"rooster", {{-1,0},{-1,-1},{1,0},{1,1}}});
+    all_cards.insert({"ox", {{0,1},{1,0},{0,-1}}});
+    all_cards.insert({"cobra", {{-1,0},{1,1},{1,-1}}});
+}
 
-    m1 = std::make_pair(0,1);
-    m2 = std::make_pair(-2,0);
-    std::pair<int,int> m3 (2,0);
-    v = {m1,m2,m3};
-    Card crab(v);
+void runDFS(Board board, vector cards, int turn) {
 
-    m1 = std::make_pair(1,1);
-    m2 = std::make_pair(-1,1);
-    m3 = std::make_pair(-1,-1);
-    std::pair<int,int> m4 (1,-1);
-    v = {m1,m2,m3,m4};
-    Card monkey(v);
 }
 
 int main() {
@@ -33,7 +39,7 @@ int main() {
     int turn = 1;
     // What cards do each person have?
     // First 2 are P1, Last 2 are P2, Middle is middle card
-    std::vector current_cards = {all_cards.get("tiger"), ... };
+    std::vector current_cards = {all_cards["tiger"], all_cards["crab"], all_cards["monkey"], all_cards["crane"], all_cards["dragon"]};
 
     Board board(current_board);
     runDFS(board, current_cards, turn);
